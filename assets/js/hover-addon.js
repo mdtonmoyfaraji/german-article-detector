@@ -148,6 +148,10 @@ function renderNoun(entries){
         if(e.partOfSpeech === "noun"){
             isNoun = true;
             meaning = e.senses?.[0]?.definition || meaning;
+
+            // Important: for singular nouns (e.g. "Garten") the API may not include
+            // a nominative singular form in e.forms. Ensure we still have a base.
+            if(!base && e.word) base = e.word;
         }
 
         for(let f of (e.forms || [])){
