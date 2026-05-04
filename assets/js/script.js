@@ -13,6 +13,8 @@ window.detectGender = function () {
         if (gender) {
             let cls = mapGender(gender);
             result += `<span class="${cls}">${word}</span>`;
+        } else if (/[A-Za-zÄÖÜäöüß]/.test(word)) {
+            result += `<span class="word-token">${word}</span>`;
         } else {
             result += word;
         }
