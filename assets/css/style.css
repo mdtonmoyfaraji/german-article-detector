@@ -221,6 +221,15 @@ button:hover {
     cursor: pointer;
 }
 
+.masculine:hover,
+.feminine:hover,
+.neuter:hover,
+.only-plural:hover,
+.word-token:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 #hoverBox {
     position: fixed;
     width: 260px;
