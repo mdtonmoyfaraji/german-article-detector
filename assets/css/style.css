@@ -96,7 +96,7 @@ body {
 /* =============================================
    RESPONSIVE — stack on small screens
    ============================================= */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .layout {
         flex-direction: column;
     }
