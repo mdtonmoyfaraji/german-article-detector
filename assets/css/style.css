@@ -176,11 +176,13 @@ textarea,
     border-radius: 5px;
     min-height: 400px;
     outline: none;
+   
 }
 textarea {
     background: var(--color-input-bg);
     color: var(--color-text);
     border: 1px solid var(--color-input-border);
+    resize: vertical;
 }
 
 #output {
