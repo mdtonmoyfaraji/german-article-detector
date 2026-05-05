@@ -449,6 +449,7 @@ function resolveDual(word){
 <div class="synant">
 <b>SYN / ANT</b><br>
 ${synStr ? `<span><b>Syn:</b> ${synStr}</span>` : ""}
+${synStr && antStr ? "<br>" : ""}
 ${antStr ? `<span><b>Ant:</b> ${antStr}</span>` : ""}
 </div>`;
         }
