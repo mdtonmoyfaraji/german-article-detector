@@ -53,9 +53,9 @@
     <!-- Apply saved theme before page renders to avoid flash -->
     <script>
     (function(){
-        var pref = localStorage.getItem('theme-preference') || 'device';
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var isDark = pref === 'dark' || (pref === 'device' && prefersDark);
+        const pref = localStorage.getItem('theme-preference') || 'device';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = pref === 'dark' || (pref === 'device' && prefersDark);
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
     })();
     </script>
@@ -230,9 +230,9 @@ function sidebarSearch() {
 
 /* ---- Hamburger menu ---- */
 (function () {
-    var hamburger = document.getElementById('hamburger');
-    var siteNav   = document.getElementById('siteNav');
-    var overlay   = document.getElementById('navOverlay');
+    const hamburger = document.getElementById('hamburger');
+    const siteNav   = document.getElementById('siteNav');
+    const overlay   = document.getElementById('navOverlay');
 
     function closeNav() {
         siteNav.classList.remove('open');
@@ -264,20 +264,20 @@ function sidebarSearch() {
 
 /* ---- Cycling theme toggle ---- */
 (function () {
-    var STORAGE_KEY = 'theme-preference';
-    var CYCLE = ['device', 'light', 'dark'];
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    var btn = document.getElementById('themeCycleBtn');
+    const STORAGE_KEY = 'theme-preference';
+    const CYCLE = ['device', 'light', 'dark'];
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const btn = document.getElementById('themeCycleBtn');
 
-    var LABELS = { light: 'Light', dark: 'Dark', device: 'Device' };
-    var TITLES = {
+    const LABELS = { light: 'Light', dark: 'Dark', device: 'Device' };
+    const TITLES = {
         light:  'Currently: Light mode — click for Dark',
         dark:   'Currently: Dark mode — click for Device',
         device: 'Currently: Device setting — click for Light'
     };
 
     function applyTheme(pref) {
-        var isDark = pref === 'dark' || (pref === 'device' && prefersDark.matches);
+        const isDark = pref === 'dark' || (pref === 'device' && prefersDark.matches);
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
         btn.setAttribute('data-theme-pref', pref);
         btn.querySelector('.theme-label').textContent = LABELS[pref];
@@ -286,19 +286,19 @@ function sidebarSearch() {
     }
 
     /* Restore saved preference on load */
-    var savedPref = localStorage.getItem(STORAGE_KEY) || 'device';
+    const savedPref = localStorage.getItem(STORAGE_KEY) || 'device';
     applyTheme(savedPref);
 
     btn.addEventListener('click', function () {
-        var current = localStorage.getItem(STORAGE_KEY) || 'device';
-        var next    = CYCLE[(CYCLE.indexOf(current) + 1) % CYCLE.length];
+        const current = localStorage.getItem(STORAGE_KEY) || 'device';
+        const next    = CYCLE[(CYCLE.indexOf(current) + 1) % CYCLE.length];
         localStorage.setItem(STORAGE_KEY, next);
         applyTheme(next);
     });
 
     /* React to OS preference changes when in "device" mode */
     prefersDark.addEventListener('change', function () {
-        var current = localStorage.getItem(STORAGE_KEY) || 'device';
+        const current = localStorage.getItem(STORAGE_KEY) || 'device';
         if (current === 'device') { applyTheme('device'); }
     });
 })();
