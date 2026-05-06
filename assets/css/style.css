@@ -349,6 +349,7 @@ button:hover {
     padding: 0 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 64px;
     gap: 12px;
 }
